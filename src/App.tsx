@@ -1,11 +1,6 @@
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import Particles, {initParticlesEngine} from "@tsparticles/react";
-import {
-    type Container,
-    type ISourceOptions,
-    MoveDirection,
-    OutMode,
-} from "@tsparticles/engine";
+import {type Container, type ISourceOptions, MoveDirection, OutMode} from "@tsparticles/engine";
 import Portfolio from "./components/Portfolio.tsx";
 import WhatIDo from "./components/WhatIDo.tsx";
 import Hero from "./components/Hero.tsx";
@@ -13,6 +8,8 @@ import Stats from 'stats.js';
 import {isMobile} from "react-device-detect";
 import {loadSlim} from "@tsparticles/slim";
 import Experience from "./components/Experience.tsx";
+import Skills from "./components/Skills.tsx";
+import throttle from 'lodash.throttle'; // Import lodash throttle
 
 const App = () => {
     const statsRef = useRef<Stats | null>(null);
@@ -46,6 +43,19 @@ const App = () => {
         });
     }, []);
 
+    // Smooth scroll handling using lodash throttle
+    useEffect(() => {
+        const handleScroll = throttle(() => {
+            // Smooth scroll handling logic here
+            // Example: Log the scroll position or implement other effects
+            console.log(window.scrollY);
+        }, 200); // Adjust the throttle delay as needed (200ms is reasonable for smooth scroll)
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     // Use useCallback to prevent unnecessary re-creations of particlesLoaded
     const particlesLoaded = useCallback(async (container?: Container): Promise<void> => {
         if (container) {
@@ -57,7 +67,7 @@ const App = () => {
     const options: ISourceOptions = useMemo(
         () => ({
             autoPlay: true,
-            fpsLimit: isMobile ? 60 : 120,
+            fpsLimit: isMobile ? 45 : 120,
             interactivity: {
                 events: {
                     onHover: {
@@ -110,6 +120,7 @@ const App = () => {
                 },
             },
             detectRetina: true,
+            fullScreen: false
         }),
         []
     );
@@ -120,8 +131,17 @@ const App = () => {
             <div className="App z-20 min-h-screen bg-gradient-to-tr from-[#001f3f] to-[#34363b] relative">
                 <Particles
                     id="tsparticles-services"
-                    particlesLoaded={particlesLoaded} // Now using the memoized callback
+                    particlesLoaded={particlesLoaded}
                     options={options}
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        zIndex: -1,
+                        pointerEvents: 'none',  // Ensure no interactions affect performance
+                    }}
                 />
                 <div
                     className="absolute inset-0"
@@ -134,6 +154,7 @@ const App = () => {
                 <WhatIDo/>
                 <Portfolio/>
                 <Experience/>
+                <Skills/>
             </div>
         );
     }

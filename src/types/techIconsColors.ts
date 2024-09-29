@@ -23,4 +23,5 @@ export const techBgColorMap: { [key: string]: string } = {
     'JavaFX': '#3972b626',       // Blue for JavaFX
     'jQuery': '#0769ad26',       // Blue for jQuery
     'Thymeleaf': '#005f0f26',    // Green for Thymeleaf
+    'Weather API': '#59666c26',    // Greyish color for Hibernate
 };

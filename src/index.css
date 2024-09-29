@@ -126,3 +126,18 @@
     opacity: 1; /* Fully opaque when active */
     background: #007aff; /* Custom active color */
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+#tsparticles-services {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+}

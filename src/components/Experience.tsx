@@ -19,7 +19,7 @@ const experiences: JobExperience[] = [
             'Developed a University Application Portal from scratch',
             'Designed the database schema and integrated the backend using Java and Spring',
             'Implemented security measures with Spring Security and Keycloak',
-            'Developed the frontend using React, TypeScript, and Material-UI'
+            'Developed the frontend using React, TypeScript, Material-UI and Redux'
         ]
     },
     // Add more experiences here
@@ -33,9 +33,9 @@ const Experience: React.FC = () => {
     };
 
     return (
-        <section id="experience" className="py-20">
+        <section id="experience" className="py-12 relative z-10">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-white mb-12 text-center">My Experience</h2>
+                <h2 className="text-4xl font-bold text-blue-400 mb-5 text-center">My Experience</h2>
                 <div className="space-y-8">
                     {experiences.map((exp, index) => (
                         <div
