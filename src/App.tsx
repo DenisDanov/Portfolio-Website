@@ -9,7 +9,8 @@ import {isMobile} from "react-device-detect";
 import {loadSlim} from "@tsparticles/slim";
 import Experience from "./components/Experience.tsx";
 import Skills from "./components/Skills.tsx";
-import throttle from 'lodash.throttle'; // Import lodash throttle
+import throttle from 'lodash.throttle';
+import Contact from "./components/Contact.tsx"; // Import lodash throttle
 
 const App = () => {
     const statsRef = useRef<Stats | null>(null);
@@ -155,6 +156,7 @@ const App = () => {
                 <Portfolio/>
                 <Experience/>
                 <Skills/>
+                <Contact/>
             </div>
         );
     }

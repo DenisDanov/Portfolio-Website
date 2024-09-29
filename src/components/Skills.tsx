@@ -58,7 +58,7 @@ const Skills: React.FC = () => {
     return (
         <section
             id="skills"
-            className="relative z-10 flex flex-col items-center justify-center py-12 bg-opacity-50 rounded-lg shadow-lg p-8"
+            className="relative z-10 flex flex-col items-center justify-center py-12 bg-opacity-50 rounded-lg p-8"
         >
             <h2 className="text-4xl font-bold text-blue-400 mb-10">My Skills</h2>
 
