@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/swiper-bundle.css';
 import {EffectCoverflow, Pagination} from 'swiper/modules'; // Additional Swiper styles
 
-const WhatIDo: React.FC = () => {
+const Services: React.FC = () => {
     const services = [
         {
             id: 'card-1',
@@ -125,4 +125,4 @@ const WhatIDo: React.FC = () => {
     );
 };
 
-export default WhatIDo;
+export default Services;

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {FaChevronLeft, FaChevronRight, FaExternalLinkAlt} from 'react-icons/fa';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
@@ -11,8 +11,7 @@ import {Navigation, Zoom} from "swiper/modules";
 import {projects} from "../types/Projects.ts";
 import TechnologiesComp from "./TechnologiesComp.tsx";
 
-const Portfolio: React.FC = () => {
-    const [selectedProject, setSelectedProject] = useState<number | null>(null);
+const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
 
     useEffect(() => {
         if (selectedProject !== null) {
@@ -180,7 +179,7 @@ const Portfolio: React.FC = () => {
                                 }}
                                 zoom={true}
                                 modules={[Navigation, Zoom]}
-                                className="w-full h-full"
+                                className="w-full h-full z-20"
                             >
                                 {[{
                                     src: projects.find((p) => p.id === selectedProject)?.mainImage,

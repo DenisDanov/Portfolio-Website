@@ -1,39 +1,21 @@
-import {useCallback, useEffect, useMemo, useRef, useState} from "react";
+import {useCallback, useEffect, useMemo, useState} from "react";
 import Particles, {initParticlesEngine} from "@tsparticles/react";
 import {type Container, type ISourceOptions, MoveDirection, OutMode} from "@tsparticles/engine";
 import Portfolio from "./components/Portfolio.tsx";
-import WhatIDo from "./components/WhatIDo.tsx";
+import Services from "./components/Services.tsx";
 import Hero from "./components/Hero.tsx";
-import Stats from 'stats.js';
 import {isMobile} from "react-device-detect";
 import {loadSlim} from "@tsparticles/slim";
 import Experience from "./components/Experience.tsx";
 import Skills from "./components/Skills.tsx";
-import throttle from 'lodash.throttle'; // Import lodash throttle
+import throttle from 'lodash.throttle';
+import Contact from "./components/Contact.tsx";
+import Header from "./components/Header.tsx";
+import Footer from "./components/Footer.tsx"; // Import lodash throttle
 
 const App = () => {
-    const statsRef = useRef<Stats | null>(null);
     const [init, setInit] = useState(false);
-
-    // Initialize and start the FPS counter
-    useEffect(() => {
-        statsRef.current = new Stats();
-        statsRef.current.showPanel(0);
-        document.body.appendChild(statsRef.current.dom);
-
-        const animate = () => {
-            statsRef.current?.begin();
-            statsRef.current?.end();
-            requestAnimationFrame(animate);
-        };
-        requestAnimationFrame(animate);
-
-        return () => {
-            if (statsRef.current) {
-                document.body.removeChild(statsRef.current.dom);
-            }
-        };
-    }, []);
+    const [selectedProject, setSelectedProject] = useState<number | null>(null); // State for project selection
 
     useEffect(() => {
         initParticlesEngine(async (engine) => {
@@ -46,9 +28,6 @@ const App = () => {
     // Smooth scroll handling using lodash throttle
     useEffect(() => {
         const handleScroll = throttle(() => {
-            // Smooth scroll handling logic here
-            // Example: Log the scroll position or implement other effects
-            console.log(window.scrollY);
         }, 200); // Adjust the throttle delay as needed (200ms is reasonable for smooth scroll)
 
         window.addEventListener("scroll", handleScroll);
@@ -143,6 +122,7 @@ const App = () => {
                         pointerEvents: 'none',  // Ensure no interactions affect performance
                     }}
                 />
+                <Header hideHeader={!!selectedProject}/>
                 <div
                     className="absolute inset-0"
                     style={{
@@ -151,10 +131,12 @@ const App = () => {
                     }}
                 ></div>
                 <Hero/>
-                <WhatIDo/>
-                <Portfolio/>
+                <Services/>
+                <Portfolio selectedProject={selectedProject} setSelectedProject={setSelectedProject} />
                 <Experience/>
                 <Skills/>
+                <Contact/>
+                <Footer/>
             </div>
         );
     }

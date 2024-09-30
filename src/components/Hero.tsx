@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
         <section
             id="hero"
             ref={heroRef}
-            className="relative flex flex-col md:flex-row items-center justify-center text-white p-8"
+            className="relative pt-24 flex flex-col md:flex-row items-center justify-center text-white p-8"
         >
             {/* Main content on the left */}
             <div className="relative z-10 flex-1 md:pr-8 max-w-md text-center md:text-left">
