@@ -33,9 +33,11 @@ const Experience: React.FC = () => {
     };
 
     return (
-        <section id="experience" className="py-12 relative z-10">
+        <section id="experience" className="py-12 relative z-[9]">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-blue-400 mb-5 text-center">My Experience</h2>
+                <h2 className="text-4xl font-bold text-blue-400 mb-2 text-center">My Experience</h2>
+                <h4 className="text-xl font-medium text-gray-400 mb-10 text-center">A Glimpse Into My Professional
+                    Journey</h4>
                 <div className="space-y-8">
                     {experiences.map((exp, index) => (
                         <div
@@ -44,7 +46,8 @@ const Experience: React.FC = () => {
                             onClick={() => toggleDescription(index)}
                         >
                             {/* Blurred Background */}
-                                <div className="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-[5px] rounded-lg pointer-events-none"></div>
+                            <div
+                                className="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-[5px] rounded-lg pointer-events-none"></div>
 
                             {/* Content Layer */}
                             <div className="relative z-10 p-4">
@@ -55,13 +58,14 @@ const Experience: React.FC = () => {
                                         <p className="text-sm text-gray-400">{exp.period}</p>
                                     </div>
                                     <div className="text-white">
-                                        {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+                                        {activeIndex === index ? <FaChevronUp/> : <FaChevronDown/>}
                                     </div>
                                 </div>
 
                                 {/* Description with Transition */}
                                 {activeIndex === index && (
-                                    <div className="mt-4 text-gray-200 transition-all duration-500 ease-in-out max-h-[500px] overflow-hidden">
+                                    <div
+                                        className="mt-4 text-gray-200 transition-all duration-500 ease-in-out max-h-[500px] overflow-hidden">
                                         {/* Consistent description text size */}
                                         <p className="text-base md:text-lg">{exp.description}</p>
                                         {exp.keyAchievements && (
@@ -69,9 +73,11 @@ const Experience: React.FC = () => {
                                                 {exp.keyAchievements.map((achievement, idx) => (
                                                     <li key={idx} className="flex items-start">
                                                         {/* Set consistent icon size */}
-                                                        <FaCheckCircle className="text-green-400 flex-shrink-0 w-5 h-5 mt-1 mr-2" />
+                                                        <FaCheckCircle
+                                                            className="text-green-400 flex-shrink-0 w-5 h-5 mt-1 mr-2"/>
                                                         {/* Consistent text size for achievements */}
-                                                        <span className="text-base md:text-lg text-gray-300">{achievement}</span>
+                                                        <span
+                                                            className="text-base md:text-lg text-gray-300">{achievement}</span>
                                                     </li>
                                                 ))}
                                             </ul>

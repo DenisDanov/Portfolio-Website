@@ -27,7 +27,7 @@ const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
     }, [selectedProject]);
 
     return (
-        <section id="portfolio" className="relative text-white py-12">
+        <section id="portfolio" className="relative text-white py-12 z-10">
             <div className="container mx-auto px-6 relative z-10"> {/* z-10 ensures content is above particles */}
                 <div className="text-center mb-5">
                     <h2 className="text-4xl font-bold text-blue-400 mb-2">Portfolio</h2>
@@ -191,10 +191,12 @@ const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
                                                  style={{width: 'auto', maxWidth: '100%'}}>
                                         {/* Image with zoom */}
                                         <div
-                                            className="swiper-zoom-container w-full h-full flex justify-center items-center">
+                                            style={{maxHeight: "95vh"}}
+                                            className="swiper-zoom-container w-full h-auto flex justify-center items-center">
                                             <img
+                                                style={{maxHeight: "95vh"}}
                                                 src={imgObj.src}
-                                                className="object-contain w-full h-full max-h-full"
+                                                className="object-contain w-full h-auto"
                                                 alt={"Image number" + (index + 1)}/>
                                         </div>
 

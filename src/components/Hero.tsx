@@ -1,9 +1,8 @@
-import { FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
-import React, { useRef, useState, useEffect } from 'react';
+import {FaGithub, FaLinkedin, FaDiscord} from 'react-icons/fa';
+import React, {useRef, useState, useEffect} from 'react';
 
 const Hero: React.FC = () => {
     const heroRef = useRef<HTMLDivElement | null>(null);
-
     // Array of texts to be typed and deleted
     const texts = ["Full-Stack Developer", "Quick Learner", "Problem Solver"];
     const [currentText, setCurrentText] = useState("");
@@ -92,7 +91,7 @@ const Hero: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white transition-transform transform hover:scale-125"
                     >
-                        <FaGithub size={32} />
+                        <FaGithub size={32}/>
                     </a>
                     <a
                         href="https://www.linkedin.com/in/denis-danov-510756246"
@@ -100,7 +99,7 @@ const Hero: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white transition-transform transform hover:scale-125"
                     >
-                        <FaLinkedin size={32} />
+                        <FaLinkedin size={32}/>
                     </a>
                     <a
                         href="https://discord.com/users/301330922354114571"
@@ -108,17 +107,19 @@ const Hero: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white transition-transform transform hover:scale-125"
                     >
-                        <FaDiscord size={32} />
+                        <FaDiscord size={32}/>
                     </a>
                 </div>
             </div>
 
             {/* About Me Section */}
-            <div className="relative z-10 flex-1 mt-8 md:mt-0 flex flex-col justify-center items-center md:justify-start max-w-md">
-                <div className="relative p-6 rounded-lg shadow-lg hover:scale-105 transition-transform overflow-hidden">
+            <div
+                className="relative z-10 flex-1 mt-8 md:mt-0 flex flex-col justify-center items-center md:justify-start max-w-md">
+                <div
+                    className="relative p-6 rounded-lg shadow-lg hover:scale-105 transition-transform overflow-hidden">
                     <div
                         className="absolute inset-0 backdrop-blur-[5px] bg-opacity-60 bg-gray-800 rounded-lg"
-                        style={{ willChange: 'transform, opacity' }}
+                        style={{willChange: 'transform, opacity'}}
                     ></div>
 
                     {/* Content without Blur */}
@@ -135,9 +136,12 @@ const Hero: React.FC = () => {
                             </div>
                         </div>
                         <p className="text-lg leading-relaxed text-gray-300 mt-4">
-                            I’m constantly driven by a relentless curiosity about software engineering. Even in my free
-                            time, I love working on side projects, whether they're personal, for friends, or just cool
-                            ideas that come up, and I enjoy exploring new technologies. Besides coding, I'm passionate
+                            I’m constantly driven by a relentless curiosity about software engineering. Even in my
+                            free
+                            time, I love working on side projects, whether they're personal, for friends, or just
+                            cool
+                            ideas that come up, and I enjoy exploring new technologies. Besides coding, I'm
+                            passionate
                             about cars, love driving around, and enjoy hanging out with friends.
                         </p>
 
@@ -151,7 +155,7 @@ const Hero: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className="inline-block mt-4 text-white bg-blue-600 px-4 py-2 rounded-md shadow-md hover:bg-blue-700 transition-colors"
                             >
-                                <FaLinkedin className="inline-block mr-2" size={20} />
+                                <FaLinkedin className="inline-block mr-2" size={20}/>
                                 Connect with me on LinkedIn
                             </a>
                         </div>

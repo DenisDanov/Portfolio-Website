@@ -78,8 +78,8 @@ const Services: React.FC = () => {
         <section id="services" className="relative text-white py-12 overflow-visible">
             {/* Content of the What I Do section */}
             <div className="relative z-10 container mx-auto px-6">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-blue-400 mb-4 transform transition-transform duration-700 ease-out">
+                <div className="text-center mb-10">
+                    <h2 className="text-4xl font-bold text-blue-400 mb-2">
                         What I Do
                     </h2>
                     <h4 className="text-xl font-medium text-gray-400">Explore My Key Areas of Expertise</h4>
