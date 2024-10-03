@@ -21,6 +21,7 @@
     "react-scroll": "^1.9.0",
     "react-slick": "^0.30.2",
     "react-spring": "^9.7.4",
+    "react-vertical-timeline-component": "^3.6.0",
     "stats.js": "^0.17.0",
     "swiper": "^11.1.12",
     "tsparticles": "^3.5.0"
@@ -32,6 +33,7 @@
     "@types/react-dom": "^18.3.0",
     "@types/react-scroll": "^1.8.10",
     "@types/react-slick": "^0.23.13",
+    "@types/react-vertical-timeline-component": "^3.3.6",
     "@types/stats.js": "^0.17.3",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",

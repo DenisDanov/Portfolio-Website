@@ -51,7 +51,7 @@ const Services: React.FC = () => {
 
             {/* Overlay Background Color with Opacity Change on Hover */}
             <div
-                className={`absolute inset-0 ${service.bgColor} opacity-10 group-hover:opacity-30 transition-opacity duration-500`}></div>
+                className={`absolute inset-0 ${service.bgColor} opacity-30 group-hover:opacity-40 transition-opacity duration-500`}></div>
 
             {/* Content without Blur */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full">
@@ -78,8 +78,8 @@ const Services: React.FC = () => {
         <section id="services" className="relative text-white py-12 overflow-visible">
             {/* Content of the What I Do section */}
             <div className="relative z-10 container mx-auto px-6">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-blue-400 mb-4 transform transition-transform duration-700 ease-out">
+                <div className="text-center mb-10">
+                    <h2 className="text-4xl font-bold text-blue-400 mb-2">
                         What I Do
                     </h2>
                     <h4 className="text-xl font-medium text-gray-400">Explore My Key Areas of Expertise</h4>

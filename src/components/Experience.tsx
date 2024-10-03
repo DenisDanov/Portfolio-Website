@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import { FaChevronDown, FaChevronUp, FaCheckCircle } from 'react-icons/fa';
+import React, {useState} from 'react';
+import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import {FaChevronDown, FaChevronUp, FaCheckCircle} from 'react-icons/fa';
+import {MdWork, MdSchool} from 'react-icons/md';
 
 interface JobExperience {
     role: string;
@@ -11,18 +14,52 @@ interface JobExperience {
 
 const experiences: JobExperience[] = [
     {
+        role: 'Full Stack Developer (Personal Project)',
+        company: 'Auto Show Website',
+        period: 'October 2023 - February 2024',
+        description: `This was my first experience developing a full-stack web application from scratch for an auto show website. I was responsible for both the front end and back end.`,
+        keyAchievements: [
+            'Developed the backend using Java with Spring Boot and MySQL',
+            'Built the frontend using HTML, CSS, JavaScript, and jQuery',
+            'Integrated Thymeleaf for server-side rendering',
+            'Implemented dynamic content loading and database management'
+        ]
+    },
+    {
+        role: 'Frontend Developer (Freelance)',
+        company: 'Client Project for a Friend',
+        period: 'March 2024 - March 2024',
+        description: `I developed a fully responsive frontend website for a friend, focusing on clean design and user experience.`,
+        keyAchievements: [
+            'Designed and developed the website using HTML, CSS, and JavaScript',
+            'Ensured responsiveness across different screen sizes and browsers',
+            'Implemented interactive design that dynamically changes content based on user input'
+        ]
+    },
+    {
         role: 'Java Intern',
         company: 'Duo Soft',
         period: 'April 2024 - July 2024',
-        description: `During my Java Internship, I delved deeper into core Java concepts and expanded my expertise into full-stack technologies, including React and TypeScript.`,
+        description: `During my Java Internship, I delved deeper into core Java concepts and expanded my expertise into full-stack technologies, including React TypeScript, Redux, MUI.`,
         keyAchievements: [
             'Developed a University Application Portal from scratch',
             'Designed the database schema and integrated the backend using Java and Spring',
             'Implemented security measures with Spring Security and Keycloak',
-            'Developed the frontend using React, TypeScript, Material-UI and Redux'
+            'Developed the frontend using React, TypeScript, Material-UI, and Redux'
         ]
     },
-    // Add more experiences here
+    {
+        role: 'Full Stack Developer (Freelance)',
+        company: 'Client Project for a Friend',
+        period: 'July 2024 - September 2024',
+        description: `For this project, I built a full-stack application using modern technologies for another friend. The backend was developed using Java, and the frontend utilized React with TypeScript.`,
+        keyAchievements: [
+            'Developed the backend with Java, Spring Boot, and MySQL',
+            'Built the frontend using React, TypeScript, and Material-UI',
+            'Integrated user authentication and form validation',
+            'Deployed the application and ensured a smooth handoff for future maintenance'
+        ]
+    },
 ];
 
 const Experience: React.FC = () => {
@@ -33,55 +70,56 @@ const Experience: React.FC = () => {
     };
 
     return (
-        <section id="experience" className="py-12 relative z-10">
+        <section id="experience" className="py-12 relative z-[9]">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-blue-400 mb-5 text-center">My Experience</h2>
-                <div className="space-y-8">
-                    {experiences.map((exp, index) => (
-                        <div
+                <h2 className="text-4xl font-bold text-blue-400 mb-2 text-center">My Experience</h2>
+                <h4 className="text-xl font-medium text-gray-400 mb-10 text-center">A Glimpse Into My Professional
+                    Journey</h4>
+
+                <VerticalTimeline>
+                    {experiences.slice(0).reverse().map((exp, index) => (
+                        <VerticalTimelineElement
                             key={index}
-                            className={`relative group rounded-lg p-6 cursor-pointer transition-transform transform hover:scale-105 shadow-lg`}
-                            onClick={() => toggleDescription(index)}
+                            contentStyle={{
+                                background: 'rgba(30, 58, 138, 0.5)',
+                                color: '#fff',
+                                backdropFilter: 'blur(5px)',
+                                WebkitBackdropFilter: 'blur(5px)',
+                                minHeight: activeIndex === index ? 'auto' : '150px',  // Give minimum height to prevent shifts
+                                transition: 'min-height 0.3s ease',  // Smooth transition for height change
+                            }}
+                            contentArrowStyle={{ borderRight: '7px solid rgba(30, 58, 138, 0.8)' }}
+                            date={exp.period}
+                            iconStyle={{ background: '#1e3a8a', color: '#fff' }}
+                            icon={index < 2 ? <MdWork /> : <MdSchool />}
                         >
-                            {/* Blurred Background */}
-                                <div className="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-[5px] rounded-lg pointer-events-none"></div>
+                            <h3 className="vertical-timeline-element-title text-white text-2xl">{exp.role}</h3>
+                            <h4 className="vertical-timeline-element-subtitle text-gray-300 text-xl">{exp.company}</h4>
+                            <p className="text-gray-200 mt-2">{exp.description}</p>
 
-                            {/* Content Layer */}
-                            <div className="relative z-10 p-4">
-                                <div className="flex justify-between items-center">
-                                    <div>
-                                        <h3 className="text-2xl font-semibold text-white">{exp.role}</h3>
-                                        <p className="text-lg text-gray-300">{exp.company}</p>
-                                        <p className="text-sm text-gray-400">{exp.period}</p>
-                                    </div>
-                                    <div className="text-white">
-                                        {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
-                                    </div>
-                                </div>
-
-                                {/* Description with Transition */}
-                                {activeIndex === index && (
-                                    <div className="mt-4 text-gray-200 transition-all duration-500 ease-in-out max-h-[500px] overflow-hidden">
-                                        {/* Consistent description text size */}
-                                        <p className="text-base md:text-lg">{exp.description}</p>
-                                        {exp.keyAchievements && (
-                                            <ul className="mt-4 space-y-2">
-                                                {exp.keyAchievements.map((achievement, idx) => (
-                                                    <li key={idx} className="flex items-start">
-                                                        {/* Set consistent icon size */}
-                                                        <FaCheckCircle className="text-green-400 flex-shrink-0 w-5 h-5 mt-1 mr-2" />
-                                                        {/* Consistent text size for achievements */}
-                                                        <span className="text-base md:text-lg text-gray-300">{achievement}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
+                            {/* Add animation to prevent layout shift */}
+                            <div className={`${activeIndex === index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
+                                {activeIndex === index && exp.keyAchievements && (
+                                    <ul className="mt-4 space-y-2">
+                                        {exp.keyAchievements.map((achievement, idx) => (
+                                            <li key={idx} className="flex items-start">
+                                                <FaCheckCircle className="text-green-400 flex-shrink-0 w-5 h-5 mt-1 mr-2" />
+                                                <span className="text-base md:text-lg text-gray-300">{achievement}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 )}
                             </div>
-                        </div>
+                            <div
+                                className="text-white cursor-pointer mt-4"
+                                onClick={() => toggleDescription(index)}
+                            >
+                                {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+                            </div>
+                        </VerticalTimelineElement>
                     ))}
-                </div>
+                </VerticalTimeline>
+
             </div>
         </section>
     );

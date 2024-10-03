@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <defs>
+    <!-- Define a small grid pattern -->
+    <pattern id="blueprintGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <!-- Horizontal and vertical lines of the grid -->
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <!-- Fill the entire area with the grid pattern -->
+  <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
+</svg>

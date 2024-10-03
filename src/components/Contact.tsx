@@ -43,12 +43,13 @@ const Contact = () => {
             className="relative flex flex-col items-center justify-center py-12 px-4"
         >
             {/* Contact me headline */}
-            <h2 className="relative z-10 text-4xl font-bold text-blue-400 mb-10 text-center">
+            <h2 className="relative z-[9] text-4xl font-bold text-blue-400 mb-2 text-center">
                 Contact me
             </h2>
+            <h4 className="text-xl font-medium text-gray-400 text-center mb-4">Let’s Collaborate or Just Say Hello</h4>
 
             {/* MacBook with form and contact info inside */}
-            <div className="relative z-10 container mx-auto flex justify-center items-center border-none shadow-none">
+            <div className="relative z-[9] container mx-auto flex justify-center items-center border-none shadow-none">
                 <div id={"contact-me-container"} className="relative w-full max-w-6xl">
                     {/* MacBook Image */}
                     <img
@@ -56,7 +57,7 @@ const Contact = () => {
                         src={macbookImg}
                         alt="Macbook"
                         className="w-full h-auto"
-                        style={{ maxWidth: "1200px" }}
+                        style={{maxWidth: "1200px"}}
                     />
 
                     {/* Form and Info inside the MacBook */}
@@ -66,7 +67,7 @@ const Contact = () => {
                             {/* Form section */}
                             <div
                                 id={"contact-form"}
-                                style={{ maxWidth: "550px" }}
+                                style={{maxWidth: "550px"}}
                                 className="flex flex-col justify-center p-4"
                             >
                                 <h3 className="text-gray-600 text-xl">Leave a Message</h3>
@@ -113,7 +114,7 @@ const Contact = () => {
                                     </div>
                                     <button
                                         type="submit"
-                                        style={{ margin: "10px auto" }}
+                                        style={{margin: "10px auto"}}
                                         className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
                                     >
                                         Send Message

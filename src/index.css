@@ -55,7 +55,7 @@
 
 @media (max-width: 1000px) {
     :root {
-        --text-height: -7px;
+        --text-height: -17px;
     }
 
     .technology-slide {
@@ -83,7 +83,7 @@
 
 @media (min-width: 1000px) {
     :root {
-        --text-height: 25px;
+        --text-height: 17px;
     }
 
     .technology-slide {
@@ -134,10 +134,12 @@ html {
 #tsparticles-services {
     width: 100%;
     height: 100%;
-    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
     margin: 0;
     padding: 0;
+    pointer-events: none;
     z-index: -1;
 }
