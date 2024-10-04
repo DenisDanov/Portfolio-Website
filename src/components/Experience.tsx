@@ -70,13 +70,15 @@ const Experience: React.FC = () => {
     };
 
     return (
-        <section id="experience" className="py-12 relative z-[9]">
+        <section id="experience" className="py-8 relative z-[1]">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-blue-400 mb-2 text-center">My Experience</h2>
                 <h4 className="text-xl font-medium text-gray-400 mb-10 text-center">A Glimpse Into My Professional
                     Journey</h4>
 
-                <VerticalTimeline>
+                <VerticalTimeline
+                animate={false}
+                >
                     {experiences.slice(0).reverse().map((exp, index) => (
                         <VerticalTimelineElement
                             key={index}
@@ -86,7 +88,7 @@ const Experience: React.FC = () => {
                                 backdropFilter: 'blur(5px)',
                                 WebkitBackdropFilter: 'blur(5px)',
                                 minHeight: activeIndex === index ? 'auto' : '150px',  // Give minimum height to prevent shifts
-                                transition: 'min-height 0.3s ease',  // Smooth transition for height change
+                                transition: 'all 0.5s ease',
                             }}
                             contentArrowStyle={{ borderRight: '7px solid rgba(30, 58, 138, 0.8)' }}
                             date={exp.period}

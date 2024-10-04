@@ -143,3 +143,18 @@ html {
     pointer-events: none;
     z-index: -1;
 }
+
+@media (min-width: 300px) {
+    #scrollToTopButton {
+        padding: 0.5rem;  /* Equivalent to xs:p-2 (8px) */
+        bottom: 0.75rem;  /* Equivalent to xs:bottom-3 (12px) */
+        right: 0.75rem;   /* Equivalent to xs:right-3 (12px) */
+        width: 2.5rem;    /* Equivalent to xs:w-10 (40px) */
+        height: 2.5rem;   /* Equivalent to xs:h-10 (40px) */
+    }
+
+    #scrollToTopButtonSvg {
+        height: 1rem;     /* Equivalent to xs:h-4 (16px) */
+        width: 1rem;      /* Equivalent to xs:w-4 (16px) */
+    }
+}

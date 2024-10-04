@@ -11,7 +11,12 @@ import {Navigation, Zoom} from "swiper/modules";
 import {projects} from "../types/Projects.ts";
 import TechnologiesComp from "./TechnologiesComp.tsx";
 
-const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
+interface PortfolioProps {
+    selectedProject: number | null;
+    setSelectedProject: React.Dispatch<React.SetStateAction<number | null>>;
+}
+
+const Portfolio: React.FC<PortfolioProps> = ({ selectedProject, setSelectedProject }) => {
 
     useEffect(() => {
         if (selectedProject !== null) {
@@ -27,7 +32,7 @@ const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
     }, [selectedProject]);
 
     return (
-        <section id="portfolio" className="relative text-white py-12 z-10">
+        <section id="portfolio" className="relative text-white py-8 z-10">
             <div className="container mx-auto px-6 relative z-10"> {/* z-10 ensures content is above particles */}
                 <div className="text-center mb-5">
                     <h2 className="text-4xl font-bold text-blue-400 mb-2">Portfolio</h2>
@@ -193,7 +198,7 @@ const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
                         >
                             <button
                                 id={"close"}
-                                style={{ lineHeight: "0 !important" }}
+                                style={{lineHeight: "0 !important"}}
                                 className="absolute top-4 right-0 z-50 bg-gray-800 text-white rounded-full p-2 opacity-80 hover:opacity-100 hover:bg-red-600 transform hover:scale-110 transition-all shadow-lg"
                                 onClick={() => setSelectedProject(null)}  // Close modal with X button
                             >
@@ -205,7 +210,7 @@ const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
                                     stroke="currentColor"
                                     strokeWidth={2}
                                 >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
                                 </svg>
                             </button>
 
@@ -229,13 +234,15 @@ const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
                                     },
                                     ...(projects.find((p) => p.id === selectedProject)?.additionalImages || []),
                                 ].map((imgObj, index) => (
-                                    <SwiperSlide key={index} className="flex justify-center items-center w-full h-full" style={{ width: "auto", maxWidth: "100%" }}>
+                                    <SwiperSlide key={index} className="flex justify-center items-center w-full h-full"
+                                                 style={{width: "auto", maxWidth: "100%"}}>
                                         {/* Image with zoom */}
-                                        <div style={{ maxHeight: "95vh" }} className="swiper-zoom-container w-full h-auto flex justify-center items-center"
+                                        <div style={{maxHeight: "95vh"}}
+                                             className="swiper-zoom-container w-full h-auto flex justify-center items-center"
                                              onClick={(e) => e.stopPropagation()}  // Prevent modal from closing when clicking inside the content
                                         >
                                             <img
-                                                style={{ maxHeight: "95vh" }}
+                                                style={{maxHeight: "95vh"}}
                                                 src={imgObj.src}
                                                 className="object-contain w-full h-auto"
                                                 alt={"Image number " + (index + 1)}
@@ -250,14 +257,14 @@ const Portfolio: React.FC = ({ selectedProject, setSelectedProject }) => {
                                     onClick={(e) => e.stopPropagation()}
                                     className="modal-swiper-button-next absolute right-1 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 bg-gray-800 text-white rounded-full p-2 opacity-80 hover:opacity-100 transition-opacity shadow-lg"
                                 >
-                                    <FaChevronRight />
+                                    <FaChevronRight/>
                                 </i>
                                 <i
                                     id={"inner-left"}
                                     onClick={(e) => e.stopPropagation()}
                                     className="modal-swiper-button-prev absolute left-1 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 bg-gray-800 text-white rounded-full p-2 opacity-80 hover:opacity-100 transition-opacity shadow-lg"
                                 >
-                                    <FaChevronLeft />
+                                    <FaChevronLeft/>
                                 </i>
                             </Swiper>
                         </div>
