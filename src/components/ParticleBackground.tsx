@@ -119,6 +119,10 @@ const ParticlesBackground = () => {
         >
             <Particles
                 id="tsparticles-canvas"
+                style={{
+                    width: initialCanvasSize.width,
+                    height: initialCanvasSize.height,
+                }}
                 particlesLoaded={particlesLoaded}
                 options={options}
             />
