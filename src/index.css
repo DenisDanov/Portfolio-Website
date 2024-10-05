@@ -158,3 +158,26 @@ html {
         width: 1rem;      /* Equivalent to xs:w-4 (16px) */
     }
 }
+
+/*html, body {*/
+/*    height: 100%;*/
+/*    margin: 0;*/
+/*}*/
+
+/*:root {*/
+/*    --vh: 100vh; !* Fallback *!*/
+/*}*/
+
+/*.App {*/
+/*    height: calc(var(--vh, 1vh) * 100); !* Locks to computed height *!*/
+/*}*/
+
+#tsparticles-services canvas {
+    position: fixed !important;
+    top: 0px !important;
+    left: 0px !important;
+    width: 100vw !important;  /* Set to 100vw to cover full width */
+    height: 100vh !important; /* Use vh cautiously or replace with % */
+    pointer-events: none;
+}
+

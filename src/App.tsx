@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import Portfolio from "./components/Portfolio";
 import Services from "./components/Services";
 import Hero from "./components/Hero";
@@ -9,15 +9,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ParticlesBackground from "./components/ParticleBackground";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-import { Analytics } from "@vercel/analytics/react"
+import {Analytics} from "@vercel/analytics/react"
 
 const App = () => {
     const [selectedProject, setSelectedProject] = useState<number | null>(null); // State for project selection
 
     return (
         <div className="App z-20 min-h-screen bg-gradient-to-tr from-[#0a1f44] via-[#0b2a5b] to-[#0c366e] relative">
-            <ParticlesBackground />
-            <Header hideHeader={!!selectedProject} />
+            <ParticlesBackground/>
+            <Header hideHeader={!!selectedProject}/>
             <div
                 className="absolute inset-0"
                 style={{
@@ -27,14 +27,14 @@ const App = () => {
                     opacity: 0.3,
                 }}
             ></div>
-            <Hero />
-            <Services />
-            <Portfolio selectedProject={selectedProject} setSelectedProject={setSelectedProject} />
-            <Experience />
-            <Strengths />
-            <Contact />
-            <Footer />
-            <ScrollToTopButton hideBtn={!!selectedProject} />
+            <Hero/>
+            <Services/>
+            <Portfolio selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>
+            <Experience/>
+            <Strengths/>
+            <Contact/>
+            <Footer/>
+            <ScrollToTopButton hideBtn={!!selectedProject}/>
             <Analytics/>
         </div>
     );
