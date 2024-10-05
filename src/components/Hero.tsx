@@ -4,7 +4,7 @@ import React, {useRef, useState, useEffect} from 'react';
 const Hero: React.FC = () => {
     const heroRef = useRef<HTMLDivElement | null>(null);
     // Array of texts to be typed and deleted
-    const texts = ["Full-Stack Developer", "Quick Learner", "Problem Solver"];
+    const texts = ["Full-Stack Developer", "Problem Solver", "Quick Learner"];
     const [currentText, setCurrentText] = useState("");
     const [textIndex, setTextIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
