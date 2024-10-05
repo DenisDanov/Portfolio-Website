@@ -8,7 +8,8 @@ import Contact from "./components/Contact";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ParticlesBackground from "./components/ParticleBackground";
-import ScrollToTopButton from "./components/ScrollToTopButton"; // Import the new component
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
     const [selectedProject, setSelectedProject] = useState<number | null>(null); // State for project selection
@@ -34,6 +35,7 @@ const App = () => {
             <Contact />
             <Footer />
             <ScrollToTopButton hideBtn={!!selectedProject} />
+            <Analytics/>
         </div>
     );
 };
