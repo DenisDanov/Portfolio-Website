@@ -20,6 +20,7 @@ const ParticlesBackground = () => {
         // Capture initial window dimensions
         const initialWidth = window.innerWidth;
         const initialHeight = window.innerHeight;
+        console.log(initialHeight);
         setInitialCanvasSize({ width: initialWidth, height: initialHeight });
     }, []);
 
@@ -28,8 +29,9 @@ const ParticlesBackground = () => {
             // Once particles are loaded, explicitly set the canvas size to the initial size
             const canvas = document.querySelector('canvas');
             if (canvas && initialCanvasSize) {
-                canvas.width = initialCanvasSize.width;  // Set canvas width
-                canvas.height = initialCanvasSize.height; // Set canvas height
+                canvas.setAttribute("height", String(initialCanvasSize.height));
+                canvas.setAttribute("width", String(initialCanvasSize.width));
+                console.log(canvas.height);
             }
 
             if (isMobile) {
@@ -90,7 +92,7 @@ const ParticlesBackground = () => {
                 straight: false,
             },
             number: {
-                value: isMobile ? 15 : 80,
+                value: isMobile ? 15 : 70,
                 density: {
                     enable: !isMobile,
                     value_area: 800,

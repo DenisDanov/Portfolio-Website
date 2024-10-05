@@ -172,13 +172,19 @@ html {
     z-index: -1;
 }
 
-
 #tsparticles-services canvas {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100vw !important;  /* Set to 100vw to cover full width */
+    width: 99.5vw !important;  /* Set to 100vw to cover full width */
     height: 100vh !important; /* Use vh cautiously or replace with % */
     pointer-events: none;
 }
 
+@media (min-width: 300px) and (max-width: 600px) {
+    #tsparticles-services canvas {
+        width: 100vw !important;
+        height: 93vh !important;
+        pointer-events: none;
+    }
+}
