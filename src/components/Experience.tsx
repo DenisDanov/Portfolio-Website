@@ -17,7 +17,7 @@ const experiences: JobExperience[] = [
         role: 'Full Stack Developer (Personal Project)',
         company: 'Auto Show Website',
         period: 'October 2023 - February 2024',
-        description: `This was my first experience developing a full-stack web application from scratch for an auto show website. I was responsible for both the front end and back end.`,
+        description: `Developed a full-stack web application for an auto show website, handling both frontend and backend development.`,
         keyAchievements: [
             'Developed the backend using Java with Spring Boot and MySQL',
             'Built the frontend using HTML, CSS, JavaScript, and jQuery',
@@ -27,20 +27,20 @@ const experiences: JobExperience[] = [
     },
     {
         role: 'Frontend Developer (Freelance)',
-        company: 'Client Project for a Friend',
+        company: 'Client Project',
         period: 'March 2024 - March 2024',
-        description: `I developed a fully responsive frontend website for a friend, focusing on clean design and user experience.`,
+        description: `Developed a fully responsive frontend website, focusing on clean design and user experience.`,
         keyAchievements: [
             'Designed and developed the website using HTML, CSS, and JavaScript',
             'Ensured responsiveness across different screen sizes and browsers',
-            'Implemented interactive design that dynamically changes content based on user input'
+            'Implemented interactive design with dynamic content changes based on user input'
         ]
     },
     {
         role: 'Java Intern',
         company: 'Duo Soft',
         period: 'April 2024 - July 2024',
-        description: `During my Java Internship, I delved deeper into core Java concepts and expanded my expertise into full-stack technologies, including React TypeScript, Redux, MUI.`,
+        description: `As a Java Intern, I gained deeper knowledge of core Java concepts and expanded into full-stack technologies, including React TypeScript, Redux, and MUI.`,
         keyAchievements: [
             'Developed a University Application Portal from scratch',
             'Designed the database schema and integrated the backend using Java and Spring',
@@ -50,9 +50,9 @@ const experiences: JobExperience[] = [
     },
     {
         role: 'Full Stack Developer (Freelance)',
-        company: 'Client Project for a Friend',
+        company: 'Client Project',
         period: 'July 2024 - September 2024',
-        description: `For this project, I built a full-stack application using modern technologies for another friend. The backend was developed using Java, and the frontend utilized React with TypeScript.`,
+        description: `Built a full-stack application using modern technologies, managing both backend and frontend development.`,
         keyAchievements: [
             'Developed the backend with Java, Spring Boot, and MySQL',
             'Built the frontend using React, TypeScript, and Material-UI',
