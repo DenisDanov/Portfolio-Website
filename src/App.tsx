@@ -15,7 +15,8 @@ const App = () => {
     const [selectedProject, setSelectedProject] = useState<number | null>(null); // State for project selection
 
     return (
-        <div className="App z-20 min-h-screen bg-gradient-to-tr from-[#0a1f44] via-[#0b2a5b] to-[#0c366e] relative">
+        <div translate="no"
+             className="App z-20 min-h-screen bg-gradient-to-tr from-[#0a1f44] via-[#0b2a5b] to-[#0c366e] relative">
             <ParticlesBackground/>
             <Header hideHeader={!!selectedProject}/>
             <div
