@@ -7,7 +7,7 @@ export const projects = [
         mainImageText: "The home page of the application",
         technologies: ['Java', 'Spring', 'MySQL', 'Hibernate', 'Redis', 'Apache Kafka', 'Liquibase', 'MiniO', 'Keycloak', 'React', 'TypeScript', 'Redux', 'MUI', 'Freemarker', 'JUnit', 'Mockito'],
         liveLink: 'https://example.com/project-two',
-        description: 'A university portal for students to apply for programs and admins to manage applications and users.',
+        description: 'A university portal for students to apply for specialties and admins to manage applications and users.',
         isLive: false,
         githubLink: "https://github.com/DenisDanov/Uni-Applications",
         additionalImages: [

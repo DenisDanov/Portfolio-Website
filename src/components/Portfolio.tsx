@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {FaChevronLeft, FaChevronRight, FaExternalLinkAlt, FaGithub} from 'react-icons/fa';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
@@ -16,7 +16,8 @@ interface PortfolioProps {
     setSelectedProject: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-const Portfolio: React.FC<PortfolioProps> = ({ selectedProject, setSelectedProject }) => {
+const Portfolio: React.FC<PortfolioProps> = ({selectedProject, setSelectedProject}) => {
+    const swiperRef = useRef<any>(null);
 
     useEffect(() => {
         if (selectedProject !== null) {
@@ -48,6 +49,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ selectedProject, setSelectedProje
                     modules={[Navigation]}
                     allowTouchMove={false}
                     className="relative"
+                  
+                    onSwiper={(swiper) => (swiperRef.current = swiper)} // Store swiper instance
                 >
                     {projects.map((project) => (
                         <SwiperSlide key={project.id} className="h-full flex flex-col items-center justify-between">
