@@ -20,7 +20,6 @@ const ParticlesBackground = () => {
         // Capture initial window dimensions
         const initialWidth = window.innerWidth;
         const initialHeight = window.innerHeight;
-        console.log(initialHeight);
         setInitialCanvasSize({ width: initialWidth, height: initialHeight });
     }, []);
 
@@ -31,7 +30,6 @@ const ParticlesBackground = () => {
             if (canvas && initialCanvasSize) {
                 canvas.setAttribute("height", String(initialCanvasSize.height));
                 canvas.setAttribute("width", String(initialCanvasSize.width));
-                console.log(canvas.height);
             }
 
             if (isMobile) {
