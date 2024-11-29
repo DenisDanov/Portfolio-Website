@@ -9,6 +9,7 @@ interface JobExperience {
     company: string;
     period: string;
     description: string;
+    responsibilities?: string[];
     keyAchievements?: string[];
 }
 
@@ -60,6 +61,19 @@ const experiences: JobExperience[] = [
             'Deployed the application and ensured a smooth handoff for future maintenance'
         ]
     },
+    {
+        role: 'Junior Backend Java Engineer',
+        company: 'Tide',
+        period: 'November 2024 - Present',
+        description: `Working on the development and maintenance of a microservice aimed at managing and resolving Authorized Push Payment (APP) fraud cases. The service facilitates the tracing and recovery of funds to victims within the mandated seven-day period.`,
+        responsibilities: [
+            'Collaborating on the implementation of core functionalities using Java 21 and the Spring framework',
+            'Assisting in the design and optimization of secure transaction tracking systems',
+            'Participating in code reviews, debugging, and testing to ensure service quality',
+            'Engaging with team members to align technical solutions with business requirements',
+            'Learning and applying best practices in financial compliance and secure software development'
+        ]
+    },
 ];
 
 const Experience: React.FC = () => {
@@ -77,7 +91,7 @@ const Experience: React.FC = () => {
                     Journey</h4>
 
                 <VerticalTimeline
-                animate={false}
+                    animate={false}
                 >
                     {experiences.slice(0).reverse().map((exp, index) => (
                         <VerticalTimelineElement
@@ -90,33 +104,45 @@ const Experience: React.FC = () => {
                                 minHeight: activeIndex === index ? 'auto' : '150px',  // Give minimum height to prevent shifts
                                 transition: 'all 0.5s ease',
                             }}
-                            contentArrowStyle={{ borderRight: '7px solid rgba(30, 58, 138, 0.8)' }}
+                            contentArrowStyle={{borderRight: '7px solid rgba(30, 58, 138, 0.8)'}}
                             date={exp.period}
-                            iconStyle={{ background: '#1e3a8a', color: '#fff' }}
-                            icon={index < 2 ? <MdWork /> : <MdSchool />}
+                            iconStyle={{background: '#1e3a8a', color: '#fff'}}
+                            icon={index < 3 ? <MdWork/> : <MdSchool/>}
                         >
                             <h3 className="vertical-timeline-element-title text-white text-2xl">{exp.role}</h3>
                             <h4 className="vertical-timeline-element-subtitle text-gray-300 text-xl">{exp.company}</h4>
                             <p className="text-gray-200 mt-2">{exp.description}</p>
 
                             {/* Add animation to prevent layout shift */}
-                            <div className={`${activeIndex === index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
-                                {activeIndex === index && exp.keyAchievements && (
+                            <div
+                                className={`${activeIndex === index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
+                                {activeIndex === index && exp.keyAchievements ? (
                                     <ul className="mt-4 space-y-2">
                                         {exp.keyAchievements.map((achievement, idx) => (
                                             <li key={idx} className="flex items-start">
-                                                <FaCheckCircle className="text-green-400 flex-shrink-0 w-5 h-5 mt-1 mr-2" />
-                                                <span className="text-base md:text-lg text-gray-300">{achievement}</span>
+                                                <FaCheckCircle
+                                                    className="text-green-400 flex-shrink-0 w-5 h-5 mt-1 mr-2"/>
+                                                <span
+                                                    className="text-base md:text-lg text-gray-300">{achievement}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                )}
+                                ) : activeIndex == index && (<ul className="mt-4 space-y-2">
+                                    {exp.responsibilities?.map((achievement, idx) => (
+                                        <li key={idx} className="flex items-start">
+                                            <FaCheckCircle
+                                                className="text-green-400 flex-shrink-0 w-5 h-5 mt-1 mr-2"/>
+                                            <span
+                                                className="text-base md:text-lg text-gray-300">{achievement}</span>
+                                        </li>
+                                    ))}
+                                </ul>)}
                             </div>
                             <div
                                 className="text-white cursor-pointer mt-4"
                                 onClick={() => toggleDescription(index)}
                             >
-                                {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+                                {activeIndex === index ? <FaChevronUp/> : <FaChevronDown/>}
                             </div>
                         </VerticalTimelineElement>
                     ))}
