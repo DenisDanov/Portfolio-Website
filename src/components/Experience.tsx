@@ -75,12 +75,12 @@ const experiences: JobExperience[] = [
         period: 'August 2025 - Present',
         description: `Promoted to Mid-Level Software Engineer within 8 months after being recognized as an "Exampler" — the highest performance rating and reward at Tide.`,
         responsibilities: [
-            'Leading team OKRs and driving delivery of strategic goals',
-            'Mentoring junior developers and supporting their technical growth',
-            'Conducting detailed code reviews to ensure quality and maintainability',
-            'Leading automation projects that improve agent efficiency and reduce manual workloads',
-            'Integrating LLMs into internal tools and workflows to enhance productivity and problem-solving',
-            'Collaborating cross-functionally to deliver impactful engineering solutions aligned with business needs'
+            'Leading and owning team OKRs, ensuring alignment with business goals and timely delivery',
+            'Mentoring and coaching junior developers, fostering growth and technical excellence',
+            'Owning code quality through detailed reviews, architectural guidance, and maintainability improvements',
+            'Driving automation initiatives that improve agent efficiency and reduce manual workloads',
+            'Owning the integration of LLMs into internal tools and workflows to enhance productivity and problem-solving',
+            'Collaborating cross-functionally with product, design, and operations to deliver impactful engineering solutions'
         ],
         skills: [
             'Java 17/21',
