@@ -54,7 +54,7 @@ const ParticlesBackground = () => {
                     delay: -1
                 },
                 onHover: {
-                    enable: !isMobile,
+                    enable: true,
                     mode: "repulse",
                 },
             },

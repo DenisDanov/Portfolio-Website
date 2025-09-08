@@ -11,32 +11,11 @@ interface JobExperience {
     description: string;
     responsibilities?: string[];
     keyAchievements?: string[];
+    achievements?: string[];
+    skills?: string[];
 }
 
 const experiences: JobExperience[] = [
-    {
-        role: 'Full Stack Developer (Personal Project)',
-        company: 'Auto Show Website',
-        period: 'October 2023 - February 2024',
-        description: `Developed a full-stack web application for an auto show website, handling both frontend and backend development.`,
-        keyAchievements: [
-            'Developed the backend using Java with Spring Boot and MySQL',
-            'Built the frontend using HTML, CSS, JavaScript, and jQuery',
-            'Integrated Thymeleaf for server-side rendering',
-            'Implemented dynamic content loading and database management'
-        ]
-    },
-    {
-        role: 'Frontend Developer (Freelance)',
-        company: 'Client Project',
-        period: 'March 2024 - March 2024',
-        description: `Developed a fully responsive frontend website, focusing on clean design and user experience.`,
-        keyAchievements: [
-            'Designed and developed the website using HTML, CSS, and JavaScript',
-            'Ensured responsiveness across different screen sizes and browsers',
-            'Implemented interactive design with dynamic content changes based on user input'
-        ]
-    },
     {
         role: 'Java Intern',
         company: 'Duo Soft',
@@ -64,16 +43,59 @@ const experiences: JobExperience[] = [
     {
         role: 'Junior Backend Java Engineer',
         company: 'Tide',
-        period: 'November 2024 - Present',
-        description: `Working on the development and maintenance of a microservice aimed at managing and resolving Authorized Push Payment (APP) fraud cases. The service facilitates the tracing and recovery of funds to victims within the mandated seven-day period.`,
+        period: 'November 2024 - July 2025',
+        description: `Worked on the development and maintenance of a microservice aimed at managing and resolving Authorized Push Payment (APP) fraud cases. The service facilitates the tracing and recovery of funds to victims within the mandated seven-day period.`,
         responsibilities: [
-            'Collaborating on the implementation of core functionalities using Java 21 and the Spring framework',
-            'Assisting in the design and optimization of secure transaction tracking systems',
-            'Participating in code reviews, debugging, and testing to ensure service quality',
-            'Engaging with team members to align technical solutions with business requirements',
-            'Learning and applying best practices in financial compliance and secure software development'
+            'Collaborated on the implementation of core functionalities using Java 21 and the Spring framework',
+            'Assisted in the design and optimization of secure transaction tracking systems',
+            'Participated in code reviews, debugging, and testing to ensure service quality',
+            'Engaged with team members to align technical solutions with business requirements',
+            'Learned and applied best practices in financial compliance and secure software development'
+        ],
+        achievements: [
+            'Recognized as an Exampler (highest performance rating at Tide)',
+            'Promoted to Mid-Level Software Engineer within 8 months'
+        ],
+        skills: [
+            'Java 17/21',
+            'Spring Framework',
+            'Redis',
+            'PostgreSQL',
+            'JOOQ',
+            'Liquibase',
+            'AWS SNS/SQS',
+            'Docker',
+            'Kubernetes',
+            'Angular with TypeScript'
         ]
     },
+    {
+        role: 'Software Engineer',
+        company: 'Tide',
+        period: 'August 2025 - Present',
+        description: `Promoted to Mid-Level Software Engineer within 8 months after being recognized as an "Exampler" — the highest performance rating and reward at Tide.`,
+        responsibilities: [
+            'Leading team OKRs and driving delivery of strategic goals',
+            'Mentoring junior developers and supporting their technical growth',
+            'Conducting detailed code reviews to ensure quality and maintainability',
+            'Leading automation projects that improve agent efficiency and reduce manual workloads',
+            'Integrating LLMs into internal tools and workflows to enhance productivity and problem-solving',
+            'Collaborating cross-functionally to deliver impactful engineering solutions aligned with business needs'
+        ],
+        skills: [
+            'Java 17/21',
+            'Spring Framework',
+            'Redis',
+            'PostgreSQL',
+            'JOOQ',
+            'Liquibase',
+            'AWS SNS/SQS',
+            'Docker',
+            'Kubernetes',
+            'Angular with TypeScript'
+        ]
+    }
+
 ];
 
 const Experience: React.FC = () => {
@@ -128,6 +150,7 @@ const Experience: React.FC = () => {
                                         ))}
                                     </ul>
                                 ) : activeIndex == index && (<ul className="mt-4 space-y-2">
+                                    <h5 className="text-lg font-semibold text-blue-300">Responsibilities</h5>
                                     {exp.responsibilities?.map((achievement, idx) => (
                                         <li key={idx} className="flex items-start">
                                             <FaCheckCircle
@@ -138,6 +161,36 @@ const Experience: React.FC = () => {
                                     ))}
                                 </ul>)}
                             </div>
+                            {activeIndex === index && exp.skills && (
+                                <div className="mt-4">
+                                    <h5 className="text-lg font-semibold text-blue-300">Skills</h5>
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                        {exp.skills.map((skill, idx) => (
+                                            <span
+                                                key={idx}
+                                                className="bg-blue-800 text-gray-200 text-sm px-3 py-1 rounded-full shadow-md"
+                                            >
+                                         {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                            {activeIndex === index && exp.achievements && (
+                                <div className="mt-4">
+                                    <h5 className="text-lg font-semibold text-blue-300">Achievements</h5>
+                                    <ul className="mt-2 space-y-2">
+                                        {exp.achievements.map((achievement, idx) => (
+                                            <li key={idx} className="flex items-start">
+                                                <FaCheckCircle
+                                                    className="text-yellow-400 flex-shrink-0 w-5 h-5 mt-1 mr-2"/>
+                                                <span
+                                                    className="text-base md:text-lg text-gray-300">{achievement}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                             <div
                                 className="text-white cursor-pointer mt-4"
                                 onClick={() => toggleDescription(index)}
